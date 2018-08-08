@@ -1,0 +1,83 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/../FrameXML/UI.xsd">
+<Button name="SBNFriendTemplate" hidden="true" virtual="true">
+		<Size x="298" y="34"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString inherits="GameFontNormal" parentKey="text" />
+				<Texture name="$parentBackground" parentKey="background">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="-1"/>
+						<Anchor point="BOTTOMRIGHT" x="0" y="1"/>
+					</Anchors>
+					<Color r="0" g="0.694" b="0.941" a="0.050"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentStatus" file="Interface\FriendsFrame\StatusIcon-Online" parentKey="status">
+					<Size x="16" y="16"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="4" y="-3"/>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentName" inherits="FriendsFont_Normal" justifyH="LEFT" parentKey="name">
+					<Size x="226" y="12"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="20" y="-4"/>
+					</Anchors>
+					<Color r="0.510" g="0.773" b="1" />
+				</FontString>
+				<FontString name="$parentInfo" inherits="FriendsFont_Small" justifyH="LEFT" parentKey="info">
+					<Size x="260" y="10"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentName" relativePoint="BOTTOMLEFT" x="0" y="-3"/>
+					</Anchors>
+					<Color r="0.486" g="0.518" b="0.541" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentTravelPassButton" hidden="false" motionScriptsWhileDisabled="true" parentKey="invite">
+				<Size x="24" y="32"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="1" y="-1"/>
+					</Anchor>
+				</Anchors>
+				<NormalTexture name="$parentNormalTexture" file="Interface\FriendsFrame\TravelPass-Invite">
+					<Size x="24" y="32"/>
+					<TexCoords left="0.01562500" right="0.39062500" top="0.27343750" bottom="0.52343750"/>
+				</NormalTexture>
+				<PushedTexture name="$parentPushedTexture" file="Interface\FriendsFrame\TravelPass-Invite">
+					<Size x="24" y="32"/>
+					<TexCoords left="0.42187500" right="0.79687500" top="0.27343750" bottom="0.52343750"/>
+				</PushedTexture>
+				<DisabledTexture name="$parentDisabledTexture" file="Interface\FriendsFrame\TravelPass-Invite">
+					<Size x="24" y="32"/>
+					<TexCoords left="0.01562500" right="0.39062500" top="0.00781250" bottom="0.25781250"/>
+				</DisabledTexture>
+				<HighlightTexture name="$parentHighlightTexture" file="Interface\FriendsFrame\TravelPass-Invite" alphaMode="ADD">
+					<Size x="24" y="32"/>
+					<TexCoords left="0.42187500" right="0.79687500" top="0.00781250" bottom="0.25781250"/>
+				</HighlightTexture>
+				<Scripts>
+					<OnClick>
+						SBN.friendInvite(self:GetParent());
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self.highlight:SetVertexColor(0.243, 0.570, 1);
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+			</OnLoad>
+		</Scripts>
+		<HighlightTexture file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD" parentKey="highlight">
+			<Anchors>
+				<Anchor point="TOPLEFT" x="0" y="-1"/>
+				<Anchor point="BOTTOMRIGHT" x="0" y="1"/>
+			</Anchors>
+		</HighlightTexture>
+</Button>
+<Frame name="CrossServerFriendsDropDown" inherits="UIDropDownMenuTemplate"/>
+</Ui>

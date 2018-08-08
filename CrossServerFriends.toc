@@ -1,0 +1,10 @@
+## Interface: 60100
+## Title: Cross Server Friends
+## Version: 1.1.0
+## Author: .fry
+## Notes: Add support to add Cross Server Character as friend, but not via battle.net.
+## Notes-ruRU: Позволяет добавить персонажа с другого сервера в список друзей.
+## SavedVariables: SBN_Settings
+
+CrossServerFriends.xml
+CrossServerFriends.lua
